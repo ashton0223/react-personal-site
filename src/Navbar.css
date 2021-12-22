@@ -1,0 +1,31 @@
+.navbar {
+    top: 0;
+    background-color: lightgray;
+    overflow: hidden;
+}
+
+.navbar a {
+  text-decoration: none;
+  float: left;
+  color: black;
+  padding: 16px;
+  font-weight: bold;
+  display: block;
+}
+
+.navbar-left a {
+  float: left;
+}
+
+.navbar-right a {
+  float: right;
+}
+  
+.navbar a:hover {
+  background-color: gainsboro;
+}
+  
+.navbar a.active {
+  pointer-events: none;
+  background-color: turquoise ;
+}

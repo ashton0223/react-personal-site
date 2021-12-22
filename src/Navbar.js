@@ -8,11 +8,13 @@ function Navbar() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/quotes" element={<Quotes />} />
+                    <Route path="/*" element={<Neither />} />
                 </Routes>
             </div>
             <div className="navbar-right">
                 <a href="https://open.spotify.com/user/aasouth223">Spotify</a>
                 <a href="https://github.com/ashton0223/">Github</a>
+                <Link to="/signup">Sign Up</Link>
             </div>
         </div>
     );
@@ -34,6 +36,15 @@ function Quotes() {
             <Link to="/quotes" className="active">Quotes</Link>
         </>
     )
+}
+
+function Neither() {
+    return (
+        <>
+            <Link to="/">Home</Link>
+            <Link to="/quotes">Quotes</Link>
+        </>
+    );
 }
 
 export default Navbar;

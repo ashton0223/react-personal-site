@@ -1,4 +1,4 @@
-import checkLogin from './checkLogin.js';
+import { checkLogin } from './firebase';
 function buttonPress() {
     if (checkLogin()) {
         console.log('logged in');

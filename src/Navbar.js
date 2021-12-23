@@ -1,21 +1,14 @@
-import './Navbar.css';
-import checkLogin from './checkLogin';
-import logout from './firebase';
+import './css/Navbar.css';
+import { logout } from './firebase';
 import { Routes, Route, Link } from "react-router-dom";
 import React from 'react';
 
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
-        this.handleLoginChange = this.handleLoginChange.bind(this);
-    }
-
-    handleLoginChange() {
-        this.props.onLoginChange();
     }
 
     render() {
-        console.log('test', this.props.loggedIn);
         return (
             <div className="navbar">
                 <div className="navbar-left">
@@ -28,7 +21,7 @@ class Navbar extends React.Component {
                 <div className="navbar-right">
                     <a href="https://open.spotify.com/user/aasouth223">Spotify</a>
                     <a href="https://github.com/ashton0223/">Github</a>
-                    <LoginControl loggedIn={this.props.loggedIn} onLoginChange={this.handleLoginChange} />
+                    <LoginControl loggedIn={this.props.loggedIn} />
                 </div>
             </div>
         );
@@ -73,26 +66,15 @@ function logoutLogic() {
 class LoginControl extends React.Component {
     constructor(props) {
         super(props);
-        this.onLoginChangea = this.onLoginChangea.bind(this);
-    }
-
-    onLoginChangea() {
-        this.props.onLoginChange();
-    }
-
-    componentDidMount() {
-        this.props.onLoginChange();
     }
 
     render() {
         const loggedIn = this.props.loggedIn;
-        console.log('should be rerendering');
-        console.log(loggedIn);
         let button;
         if (loggedIn === 'true') {
-            button = <LoggedIn LoginChange={this.onLoginChangea} />;
+            button = <LoggedIn />;
         } else {
-            button = <LoggedOut LoginChange={this.onLoginChangea} />;
+            button = <LoggedOut />;
         };
         return (
             <div loggedin={loggedIn}>{button}</div>

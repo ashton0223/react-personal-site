@@ -21,4 +21,15 @@ export const auth = getAuth(app);
 function logout() {
     signOut(auth);
 }
-export default logout;
+
+function checkLogin() {
+    if (auth.currentUser !== null) {
+        return true;
+    }
+    return false;
+}
+
+export {
+    logout,
+    checkLogin,
+}

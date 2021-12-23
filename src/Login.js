@@ -3,15 +3,13 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from './firebase.js';
 import React from 'react';
 
-function login(callback) {
+function login(calback) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log('Logged in!');
-        callback();
         // ...
       })
       .catch((error) => {
@@ -23,11 +21,6 @@ function login(callback) {
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.onLoginChangea = this.onLoginChangea.bind(this);
-    }
-
-    onLoginChangea() {
-        this.props.onLoginChange();
     }
 
     render() {
@@ -36,9 +29,7 @@ class Login extends React.Component {
                 <div>
                     <input type="text" id="email" />
                     <input type="password" id="password" />
-                    <button onClick={() => {
-                        login(this.onLoginChangea());
-                    }}>Login</button>
+                    <button onClick={login}>Login</button>
                 </div>
                 <Link to="/signup">Sign Up</Link>
             </div>

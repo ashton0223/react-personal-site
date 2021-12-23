@@ -1,5 +1,5 @@
 import React from 'react';
-import './Quotes.css';
+import './css/Quotes.css';
 
 URL = 'https://personal-website-d1a5b-default-rtdb.firebaseio.com/quotes.json';
 
